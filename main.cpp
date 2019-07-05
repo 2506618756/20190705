@@ -22,7 +22,7 @@ struct Students
 	double sum=0;
 	double grades[REFEREENUMBER];
 }student[STUDENTNUMBER];
-bool judge(Students &first,Students &second)
+bool compare(Students &first,Students &second)
 {
 	if( first.sum > second.sum )
 	{
@@ -106,7 +106,7 @@ int main()
 		student[i].sum += student[i].grades[j];
 		student[i].sum /= (REFEREENUMBER-2);
 	}	
-	sort( student , student + STUDENTNUMBER , judge );
+	sort( student , student + STUDENTNUMBER , compare );
 	cout << "下面是各参赛选手的竞赛信息："  << endl << endl;
 	cout << setw(4)  << "排名";
 	cout << setw(8)  << "学号";

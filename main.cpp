@@ -22,7 +22,7 @@ struct Students
 	double sum=0;
 	double grades[REFEREENUMBER];
 }student[STUDENTNUMBER];
-bool compare(Students &first,Students &second)
+bool compare(Students first,Students second)
 {
 	if( first.sum > second.sum )
 	{
@@ -37,7 +37,7 @@ int main()
 {
     int n = 0,k = 0;
     ifstream refereeinput,studentinput;
-    ofstream Match("E:\Competition results.xlsx");
+    ofstream Matchoutput("E:\Competition results.xlsx");
     refereeinput.open("E:\Refereeinformation.txt");
     if(!refereeinput.is_open())
     {
@@ -126,18 +126,18 @@ int main()
 	cout  << "恭喜本次比赛的冠军得主：" << student[0].name << " 同学" << endl;
 	cout  << "下面让请为我们的冠军送上热烈的掌声！" << endl;
 	cout  << "啪啪啪啪啪啪啪啪啪啪啪啪-----------"; 
-	Match << setw(4)  << "排名";
-	Match << setw(8)  << "学号";
-	Match << setw(12) << "学院";
-	Match << setw(7)  << "姓名";
-	Match << setw(8)  << "成绩" << endl;
+	Matchoutput << setw(4)  << "排名";
+	Matchoutput << setw(8)  << "学号";
+	Matchoutput << setw(12) << "学院";
+	Matchoutput << setw(7)  << "姓名";
+	Matchoutput << setw(8)  << "成绩" << endl;
 	for( int i=0; i<STUDENTNUMBER; i++ )
 	{
-		Match << setw(1)  << i+1;
-		Match << setw(13) << student[i].ID;
-		Match << setw(10) << student[i].college;
-		Match << setw(8)  << student[i].name;
-		Match << setw(4)  << floor(student[i].sum) << endl;
+		Matchoutput << setw(1)  << i+1;
+		Matchoutput << setw(13) << student[i].ID;
+		Matchoutput << setw(10) << student[i].college;
+		Matchoutput << setw(8)  << student[i].name;
+		Matchoutput << setw(4)  << floor(student[i].sum) << endl;
 	}
     return 0;
 }
